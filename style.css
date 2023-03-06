@@ -1,0 +1,102 @@
+/* Root representa o elemento hmtl e é identico ao seletor html, execeto que sua especificidade é mais alta */
+:root {
+    --white: #fff;
+    --red: #ea3433;
+    --red-box-shadow: #8d1313;
+    --gray-box-shadow: #b9b9b9;
+}
+
+/*Zerando o HTML*/
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*Centralizar o body e adicionar cor*/
+body {
+    align-items: center;
+    background-color: var(--red);
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.border {
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 50%;
+    box-shadow: 1px 1px 16px 4px var(--red-box-shadow);
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    position: relative;
+    transform: rotate(-7deg);
+    width: 300px;
+}
+
+.nautico {
+    background-color: var(--white);
+    border-radius: 50%;
+    height: 288px;
+    overflow: hidden;
+    position: relative;
+    width: 288px;
+}
+
+.nautico::before {
+    background-color: var(--red);
+    bottom: -120px;
+    content: "";
+    height: 200px;
+    position: absolute;
+    width: 400px;
+}
+
+.striped {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 30px,
+            var(--red)30px, var(--red)65px);
+    bottom: 10px;
+    height: 300px;
+    position: absolute;
+    right: -70px;
+    width: 200px;
+}
+
+.paddle{
+    background-color: transparent;
+    border: 3px solid var(--red);
+    box-shadow: 1px 1px 8px 1px var(--gray-box-shadow);
+    border-radius: 50%;
+    height: 25px;
+    position: absolute;
+    left: 75px;
+    top: 65px;
+    width: 25px;
+}
+
+/*paddle style*/
+.paddle:before,
+.paddle:after{
+    background-color: var(--red);
+    box-shadow: 1px 1px 8px 1px var(--gray-box-shadow);
+    content: "";
+    height: 100px;
+    left: 8px;
+    position: absolute;
+    top: -10px;
+    width: 3px;
+}
+
+/*Rotate the paddles*/
+.paddle:after{
+    transform: rotate(40deg);
+}
+
+.paddle:before{
+    transform: rotate(-40deg);
+}
